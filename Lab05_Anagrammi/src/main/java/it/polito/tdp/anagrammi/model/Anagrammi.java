@@ -4,13 +4,25 @@ import java.util.ArrayList;
 
 import java.util.List;
 
+import it.polito.tdp.anagrammi.db.DizionarioDAO;
+
 public class Anagrammi {
+	
+	DizionarioDAO dao = new DizionarioDAO();
 	
 	public List<String> AnagrammiParola(String parola){
 		
 		List<String> Risultato = new ArrayList<>();
+		
+		List<String> RisultatoCorretto = new ArrayList<>();
+		
 		permuta("", parola, 0, Risultato);
-		return Risultato;
+		
+		for(String s : Risultato)
+			if(dao.parolaValida(s))
+				RisultatoCorretto.add(s);
+		
+		return RisultatoCorretto;
 		
 	}
 	
