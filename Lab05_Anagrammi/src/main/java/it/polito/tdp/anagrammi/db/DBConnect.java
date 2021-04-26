@@ -26,8 +26,8 @@ public class DBConnect {
 		
 		try {
 			
-				Connection connection = ds.getConnection();
-				return connection;
+			Connection connection = ds.getConnection();
+			return connection;
 
 		} catch (SQLException e) {
 
